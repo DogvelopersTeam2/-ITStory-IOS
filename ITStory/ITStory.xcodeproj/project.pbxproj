@@ -11,6 +11,10 @@
 		F7E4595D289C325300862D29 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E4595C289C325300862D29 /* ContentView.swift */; };
 		F7E4595F289C325700862D29 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7E4595E289C325700862D29 /* Assets.xcassets */; };
 		F7E45962289C325700862D29 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7E45961289C325700862D29 /* Preview Assets.xcassets */; };
+		F7E45969289C34B200862D29 /* MyTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E45968289C34B200862D29 /* MyTabView.swift */; };
+		F7E4596B289C354600862D29 /* WritingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E4596A289C354600862D29 /* WritingView.swift */; };
+		F7E4596D289C355300862D29 /* MypageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E4596C289C355300862D29 /* MypageView.swift */; };
+		F7E4596F289C376900862D29 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E4596E289C376900862D29 /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +23,10 @@
 		F7E4595C289C325300862D29 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F7E4595E289C325700862D29 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F7E45961289C325700862D29 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F7E45968289C34B200862D29 /* MyTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTabView.swift; sourceTree = "<group>"; };
+		F7E4596A289C354600862D29 /* WritingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingView.swift; sourceTree = "<group>"; };
+		F7E4596C289C355300862D29 /* MypageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageView.swift; sourceTree = "<group>"; };
+		F7E4596E289C376900862D29 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +40,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F7B2070D289EA8AB0005AA5E /* test */ = {
+			isa = PBXGroup;
+			children = (
+				F7E45968289C34B200862D29 /* MyTabView.swift */,
+				F7E4596E289C376900862D29 /* HomeView.swift */,
+				F7E4596C289C355300862D29 /* MypageView.swift */,
+			);
+			path = test;
+			sourceTree = "<group>";
+		};
 		F7E4594E289C325300862D29 = {
 			isa = PBXGroup;
 			children = (
@@ -51,8 +69,10 @@
 		F7E45959289C325300862D29 /* ITStory */ = {
 			isa = PBXGroup;
 			children = (
+				F7B2070D289EA8AB0005AA5E /* test */,
 				F7E4595A289C325300862D29 /* ITStoryApp.swift */,
 				F7E4595C289C325300862D29 /* ContentView.swift */,
+				F7E4596A289C354600862D29 /* WritingView.swift */,
 				F7E4595E289C325700862D29 /* Assets.xcassets */,
 				F7E45960289C325700862D29 /* Preview Content */,
 			);
@@ -138,7 +158,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7E4595D289C325300862D29 /* ContentView.swift in Sources */,
+				F7E45969289C34B200862D29 /* MyTabView.swift in Sources */,
 				F7E4595B289C325300862D29 /* ITStoryApp.swift in Sources */,
+				F7E4596F289C376900862D29 /* HomeView.swift in Sources */,
+				F7E4596B289C354600862D29 /* WritingView.swift in Sources */,
+				F7E4596D289C355300862D29 /* MypageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
