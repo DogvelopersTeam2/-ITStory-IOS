@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F7B2070F289EAE950005AA5E /* BlogPosts.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B2070E289EAE950005AA5E /* BlogPosts.swift */; };
+		F7BA4691289FE9EB00666979 /* BlogPostCardMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BA4690289FE9EB00666979 /* BlogPostCardMain.swift */; };
+		F7BA4693289FEE5C00666979 /* HexColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BA4692289FEE5C00666979 /* HexColorExtension.swift */; };
+		F7BA4695289FF47C00666979 /* BlogPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BA4694289FF47C00666979 /* BlogPostView.swift */; };
+		F7BA4697289FF8E500666979 /* AllPosts.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BA4696289FF8E500666979 /* AllPosts.swift */; };
+		F7BA4699289FF9CE00666979 /* BlogPostCardList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BA4698289FF9CE00666979 /* BlogPostCardList.swift */; };
 		F7E4595B289C325300862D29 /* ITStoryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E4595A289C325300862D29 /* ITStoryApp.swift */; };
 		F7E4595D289C325300862D29 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E4595C289C325300862D29 /* ContentView.swift */; };
 		F7E4595F289C325700862D29 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7E4595E289C325700862D29 /* Assets.xcassets */; };
@@ -18,6 +24,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F7B2070E289EAE950005AA5E /* BlogPosts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogPosts.swift; sourceTree = "<group>"; };
+		F7BA4690289FE9EB00666979 /* BlogPostCardMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogPostCardMain.swift; sourceTree = "<group>"; };
+		F7BA4692289FEE5C00666979 /* HexColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexColorExtension.swift; sourceTree = "<group>"; };
+		F7BA4694289FF47C00666979 /* BlogPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogPostView.swift; sourceTree = "<group>"; };
+		F7BA4696289FF8E500666979 /* AllPosts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllPosts.swift; sourceTree = "<group>"; };
+		F7BA4698289FF9CE00666979 /* BlogPostCardList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogPostCardList.swift; sourceTree = "<group>"; };
 		F7E45957289C325300862D29 /* ITStory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ITStory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7E4595A289C325300862D29 /* ITStoryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ITStoryApp.swift; sourceTree = "<group>"; };
 		F7E4595C289C325300862D29 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -75,6 +87,12 @@
 				F7E4596A289C354600862D29 /* WritingView.swift */,
 				F7E4595E289C325700862D29 /* Assets.xcassets */,
 				F7E45960289C325700862D29 /* Preview Content */,
+				F7B2070E289EAE950005AA5E /* BlogPosts.swift */,
+				F7BA4690289FE9EB00666979 /* BlogPostCardMain.swift */,
+				F7BA4692289FEE5C00666979 /* HexColorExtension.swift */,
+				F7BA4694289FF47C00666979 /* BlogPostView.swift */,
+				F7BA4696289FF8E500666979 /* AllPosts.swift */,
+				F7BA4698289FF9CE00666979 /* BlogPostCardList.swift */,
 			);
 			path = ITStory;
 			sourceTree = "<group>";
@@ -158,10 +176,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7E4595D289C325300862D29 /* ContentView.swift in Sources */,
+				F7BA4699289FF9CE00666979 /* BlogPostCardList.swift in Sources */,
 				F7E45969289C34B200862D29 /* MyTabView.swift in Sources */,
+				F7BA4695289FF47C00666979 /* BlogPostView.swift in Sources */,
+				F7BA4691289FE9EB00666979 /* BlogPostCardMain.swift in Sources */,
 				F7E4595B289C325300862D29 /* ITStoryApp.swift in Sources */,
+				F7BA4693289FEE5C00666979 /* HexColorExtension.swift in Sources */,
 				F7E4596F289C376900862D29 /* HomeView.swift in Sources */,
 				F7E4596B289C354600862D29 /* WritingView.swift in Sources */,
+				F7BA4697289FF8E500666979 /* AllPosts.swift in Sources */,
+				F7B2070F289EAE950005AA5E /* BlogPosts.swift in Sources */,
 				F7E4596D289C355300862D29 /* MypageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
