@@ -42,62 +42,73 @@ struct ContentView: View {
                     //            .navigationBarBackButtonHidden(true)
                     //            .navigationBarHidden(true)
                     
-                    // 블로그 형식 에시
+                    // 블로그 형식 예시
+                    
                     LazyVStack {
-                        ForEach(featuredpost) { post in
+                        ForEach(latestpost) { post in
                             //Text(post.name)
                             NavigationLink(destination: BlogPostView(blogPost: post)) {
-                                BlogPostCardMain(blogPost: post)
+                                BlogPostCardList(blogPost: post)
                             }
                         }
                     }
                     
-                    
-                    
-                    Spacer()
-                }
-                //            .padding(.horizontal)
-                //            .padding(.vertical)
-                
-                // latest 지난거
-                VStack {
-                    HStack {
-                        Text("latest posts")
-                            .font(.title.bold())
-                        Spacer()
-                    }
-                    .padding(.horizontal, 15)
-                    
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        LazyHStack(spacing: 15) {
-//                            ForEach(latestpost) { post in
+//                    LazyVStack {
+//                        ForEach(featuredpost) { post in
+//                            //Text(post.name)
+//                            NavigationLink(destination: BlogPostView(blogPost: post)) {
 //                                BlogPostCardMain(blogPost: post)
 //                            }
-                            
-                            if latestpost.count >= 3 {
-                                ForEach(latestpost[0...2]) { post in
-                                    NavigationLink(destination: BlogPostView(blogPost: post)) {
-                                        BlogPostCardMain(blogPost: post)
-                                    }
-                                }
-                            }
-                            else {
-                                ForEach(latestpost[0..<latestpost.count]) { post in
-                                    NavigationLink(destination: BlogPostView(blogPost: post)) {
-                                        BlogPostCardMain(blogPost: post)
-                                    }
-                                }
-                            }
-                            
-                        }
-                        .padding(.leading, 15)
-                        .padding(.trailing, 30)
-                    }
-                    .frame(height: 420)
-                    Spacer()
+//                        }
+//                    }
+//
+//
+//                    Spacer()
+//                }
+//                //            .padding(.horizontal)
+//                //            .padding(.vertical)
+//
+//                // latest 지난거
+//                VStack {
+//                    HStack {
+//                        Text("latest posts")
+//                            .font(.title.bold())
+//                        Spacer()
+//                    }
+//                    .padding(.horizontal, 15)
+//
+//                    ScrollView(.horizontal, showsIndicators: false) {
+//                        LazyHStack(spacing: 15) {
+////                            ForEach(latestpost) { post in
+////                                BlogPostCardMain(blogPost: post)
+////                            }
+//
+//                            if latestpost.count >= 3 {
+//                                ForEach(latestpost[0...2]) { post in
+//                                    NavigationLink(destination: BlogPostView(blogPost: post)) {
+//                                        BlogPostCardMain(blogPost: post)
+//                                    }
+//                                }
+//                            }
+//                            else {
+//                                ForEach(latestpost[0..<latestpost.count]) { post in
+//                                    NavigationLink(destination: BlogPostView(blogPost: post)) {
+//                                        BlogPostCardMain(blogPost: post)
+//                                    }
+//                                }
+//                            }
+//
+//                        }
+//                        .padding(.leading, 15)
+//                        .padding(.trailing, 30)
+//                    }
+//                    .frame(height: 420)
+//                    Spacer()
                 }
                 .padding(.bottom, 40)
             }
+            
+            
         }
         .navigationBarHidden(true)
         .navigationBarBackButtonHidden(true)
