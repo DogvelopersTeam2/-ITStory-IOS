@@ -55,6 +55,9 @@
 		F7B2070D289EA8AB0005AA5E /* test */ = {
 			isa = PBXGroup;
 			children = (
+				F7BA4692289FEE5C00666979 /* HexColorExtension.swift */,
+				F7BA4690289FE9EB00666979 /* BlogPostCardMain.swift */,
+				F7BA4696289FF8E500666979 /* AllPosts.swift */,
 				F7E45968289C34B200862D29 /* MyTabView.swift */,
 				F7E4596E289C376900862D29 /* HomeView.swift */,
 				F7E4596C289C355300862D29 /* MypageView.swift */,
@@ -88,10 +91,7 @@
 				F7E4595E289C325700862D29 /* Assets.xcassets */,
 				F7E45960289C325700862D29 /* Preview Content */,
 				F7B2070E289EAE950005AA5E /* BlogPosts.swift */,
-				F7BA4690289FE9EB00666979 /* BlogPostCardMain.swift */,
-				F7BA4692289FEE5C00666979 /* HexColorExtension.swift */,
 				F7BA4694289FF47C00666979 /* BlogPostView.swift */,
-				F7BA4696289FF8E500666979 /* AllPosts.swift */,
 				F7BA4698289FF9CE00666979 /* BlogPostCardList.swift */,
 			);
 			path = ITStory;
