@@ -26,10 +26,7 @@ struct WritingView: View {
                         .foregroundColor(Color.black)
                         .padding()
                     }
-//                    Text("취소")
-//                        .padding()
-//                    Text("카테고리")
-//                        .padding()
+                    // 버튼으로 바꾸고 이걸 누르면 서버 요청하고 디비에 저장
                     Text("등록")
                         .padding()
                 }

@@ -7,24 +7,24 @@
 
 import SwiftUI
 
-struct BlogPostView: View {
-    var blogPost: BlogPosts
+struct BlogPostView: View { // 글 누르면 보여주는 뷰
+    var blogPost: BlogPost
     
     var body: some View {
         ZStack {
             ScrollView {
                 VStack {
-                    Image(blogPost.image)
-                        .renderingMode(.original)
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(height: 310)
-                        .frame(maxWidth: UIScreen.main.bounds.width)
-                        .clipped()
+//                    Image(blogPost.image)
+//                        .renderingMode(.original)
+//                        .resizable()
+//                        .aspectRatio(contentMode: .fill)
+//                        .frame(height: 310)
+//                        .frame(maxWidth: UIScreen.main.bounds.width)
+//                        .clipped()
                     
                     VStack {
                         HStack {
-                            Text(blogPost.name)
+                            Text(blogPost.postTitle)
                                 .font(.title3)
                                 .fontWeight(.heavy)
                                 .foregroundColor(.primary)
@@ -34,7 +34,7 @@ struct BlogPostView: View {
                         }
                         .frame(maxWidth: .infinity)
                         
-                        Text(blogPost.details)
+                        Text(blogPost.postContent)
                             .multilineTextAlignment(.leading)
                             .font(.body)
                             .foregroundColor(Color.primary.opacity(0.9))
@@ -55,6 +55,6 @@ struct BlogPostView: View {
 
 struct BlogPostView_Previews: PreviewProvider {
     static var previews: some View {
-        BlogPostView(blogPost: BlogPosts(id: 1, name: "test", image: "1", details: "ddkdkdkdkk"))
+        BlogPostView(blogPost: BlogPost(postId: 0, postTitle: "test", postContent: "tt"))
     }
 }

@@ -7,22 +7,22 @@
 
 import SwiftUI
 
-struct BlogPostCardList: View {
-    var blogPost: BlogPosts
+struct BlogPostCardList: View { // 글 목록 보여주는 뷰
+    var blogPost: BlogPost
     
     var body: some View {
         VStack(alignment: .leading) {
-            Image(blogPost.image)
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(maxWidth: .infinity)
-                .frame(height: 180)
-                .frame(maxWidth: UIScreen.main.bounds.width-60)
-                .clipped()
-                .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
+//            Image(blogPost.image)
+//                .resizable()
+//                .aspectRatio(contentMode: .fill)
+//                .frame(maxWidth: .infinity)
+//                .frame(height: 180)
+//                .frame(maxWidth: UIScreen.main.bounds.width-60)
+//                .clipped()
+//                .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
             VStack(spacing: 6) {
                 HStack {
-                    Text(blogPost.name)
+                    Text(blogPost.postTitle)
                         .multilineTextAlignment(.leading)
                         .fixedSize(horizontal: false, vertical: true)
                         .lineLimit(3)
@@ -31,7 +31,7 @@ struct BlogPostCardList: View {
                     Spacer()
                 }
                 HStack {
-                    Text(blogPost.details)
+                    Text(blogPost.postContent)
                         .multilineTextAlignment(.leading)
                         .fixedSize(horizontal: false, vertical: true)
                         .lineLimit(3)
@@ -48,6 +48,6 @@ struct BlogPostCardList: View {
 
 struct BlogPostCardList_Previews: PreviewProvider {
     static var previews: some View {
-        BlogPostCardList(blogPost: BlogPosts(id: 1, name: "test", image: "1", details: "ddkdkdkdkk"))
+        BlogPostCardList(blogPost: BlogPost(postId: 0, postTitle: "testtt", postContent: "ttt"))
     }
 }

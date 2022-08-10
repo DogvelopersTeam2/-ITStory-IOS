@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F791CE5528A2234C0012900D /* RestAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F791CE5428A2234C0012900D /* RestAPI.swift */; };
 		F7B2070F289EAE950005AA5E /* BlogPosts.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B2070E289EAE950005AA5E /* BlogPosts.swift */; };
 		F7BA4691289FE9EB00666979 /* BlogPostCardMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BA4690289FE9EB00666979 /* BlogPostCardMain.swift */; };
 		F7BA4693289FEE5C00666979 /* HexColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BA4692289FEE5C00666979 /* HexColorExtension.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F791CE5428A2234C0012900D /* RestAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestAPI.swift; sourceTree = "<group>"; };
 		F7B2070E289EAE950005AA5E /* BlogPosts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogPosts.swift; sourceTree = "<group>"; };
 		F7BA4690289FE9EB00666979 /* BlogPostCardMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogPostCardMain.swift; sourceTree = "<group>"; };
 		F7BA4692289FEE5C00666979 /* HexColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexColorExtension.swift; sourceTree = "<group>"; };
@@ -55,6 +57,7 @@
 		F7B2070D289EA8AB0005AA5E /* test */ = {
 			isa = PBXGroup;
 			children = (
+				F7B2070E289EAE950005AA5E /* BlogPosts.swift */,
 				F7BA4692289FEE5C00666979 /* HexColorExtension.swift */,
 				F7BA4690289FE9EB00666979 /* BlogPostCardMain.swift */,
 				F7BA4696289FF8E500666979 /* AllPosts.swift */,
@@ -90,9 +93,9 @@
 				F7E4596A289C354600862D29 /* WritingView.swift */,
 				F7E4595E289C325700862D29 /* Assets.xcassets */,
 				F7E45960289C325700862D29 /* Preview Content */,
-				F7B2070E289EAE950005AA5E /* BlogPosts.swift */,
 				F7BA4694289FF47C00666979 /* BlogPostView.swift */,
 				F7BA4698289FF9CE00666979 /* BlogPostCardList.swift */,
+				F791CE5428A2234C0012900D /* RestAPI.swift */,
 			);
 			path = ITStory;
 			sourceTree = "<group>";
@@ -185,6 +188,7 @@
 				F7E4596F289C376900862D29 /* HomeView.swift in Sources */,
 				F7E4596B289C354600862D29 /* WritingView.swift in Sources */,
 				F7BA4697289FF8E500666979 /* AllPosts.swift in Sources */,
+				F791CE5528A2234C0012900D /* RestAPI.swift in Sources */,
 				F7B2070F289EAE950005AA5E /* BlogPosts.swift in Sources */,
 				F7E4596D289C355300862D29 /* MypageView.swift in Sources */,
 			);

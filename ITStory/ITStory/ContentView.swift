@@ -9,111 +9,58 @@ import SwiftUI
 
 struct ContentView: View {
     @State var tag:Int? = nil
+    @StateObject var blog = RestApI()
     
     var body: some View {
         NavigationView {
-            ScrollView {
-                VStack{
-                    HStack {
-                        Image("Image")
-                            .resizable()
-                            .frame(width: 40, height: 40)
+            VStack {
+                HStack {
+                    //                        Image("Image")
+                    //                            .resizable()
+                    //                            .frame(width: 40, height: 40)
+                    //                            .padding()
+                    NavigationLink(destination: WritingView(), tag: 1, selection: self.$tag) {}
+                    Button(action: {
+                        self.tag = 1
+                    }) {
+                        Image(systemName: "highlighter")
+                            .foregroundColor(.purple)
                             .padding()
-                        Spacer()
-                        Text("IT Story")
-                            .padding()
-                            .foregroundColor(.black)
-                        //                .frame(width: 250, height: 65)
-                        //                .background(Color(.systemGray4))
-                        Spacer()
-                        //            Image(systemName: "magnifyingglass")
-                        //                .foregroundColor(.gray)
-                        
-                        NavigationLink(destination: WritingView(), tag: 1, selection: self.$tag) {}
-                        Button(action: {
-                            self.tag = 1
-                        }) {
-                            Image(systemName: "highlighter")
-                                .foregroundColor(.black)
-                                .padding()
-                        }
                     }
-                    //        MyTabView()
-                    //            .navigationBarBackButtonHidden(true)
-                    //            .navigationBarHidden(true)
-                    
-                    // 블로그 형식 예시
-                    
-                    LazyVStack {
-                        ForEach(latestpost) { post in
-                            //Text(post.name)
+                }
+                List {
+                    ForEach(blog.posts, id: \.self) { post in
+                        VStack {
+//                            HStack {
+//                            Text(post.postTitle)
+//                                .font(.system(size: 20))
+//                                .bold()
+//                            }.padding(3)
+//
+//                            Text(post.postContent)
+//                                .font(.system(size: 15))
+//                                .bold()
+                            
                             NavigationLink(destination: BlogPostView(blogPost: post)) {
                                 BlogPostCardList(blogPost: post)
                             }
-                        }
+                            
+                        }.padding(3)
                     }
-                    
-//                    LazyVStack {
-//                        ForEach(featuredpost) { post in
-//                            //Text(post.name)
-//                            NavigationLink(destination: BlogPostView(blogPost: post)) {
-//                                BlogPostCardMain(blogPost: post)
-//                            }
-//                        }
-//                    }
-//
-//
-//                    Spacer()
-//                }
-//                //            .padding(.horizontal)
-//                //            .padding(.vertical)
-//
-//                // latest 지난거
-//                VStack {
-//                    HStack {
-//                        Text("latest posts")
-//                            .font(.title.bold())
-//                        Spacer()
-//                    }
-//                    .padding(.horizontal, 15)
-//
-//                    ScrollView(.horizontal, showsIndicators: false) {
-//                        LazyHStack(spacing: 15) {
-////                            ForEach(latestpost) { post in
-////                                BlogPostCardMain(blogPost: post)
-////                            }
-//
-//                            if latestpost.count >= 3 {
-//                                ForEach(latestpost[0...2]) { post in
-//                                    NavigationLink(destination: BlogPostView(blogPost: post)) {
-//                                        BlogPostCardMain(blogPost: post)
-//                                    }
-//                                }
-//                            }
-//                            else {
-//                                ForEach(latestpost[0..<latestpost.count]) { post in
-//                                    NavigationLink(destination: BlogPostView(blogPost: post)) {
-//                                        BlogPostCardMain(blogPost: post)
-//                                    }
-//                                }
-//                            }
-//
-//                        }
-//                        .padding(.leading, 15)
-//                        .padding(.trailing, 30)
-//                    }
-//                    .frame(height: 420)
-//                    Spacer()
                 }
-                .padding(.bottom, 40)
+                .navigationTitle("IT Story")
+                .onAppear {
+                    blog.fetch()
+                }
+                
             }
-            
-            
         }
         .navigationBarHidden(true)
         .navigationBarBackButtonHidden(true)
     }
+    
 }
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
