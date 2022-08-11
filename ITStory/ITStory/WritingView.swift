@@ -9,8 +9,10 @@ import SwiftUI
 
 struct WritingView: View {
     @State var tag:Int? = nil
+    @State var title: String = ""
     @State var placeholder: String = "개발 내용을 작성해주세요."
     @State var content: String = ""
+    //let item: PostModel
     
     var body: some View {
         NavigationView {
@@ -32,7 +34,12 @@ struct WritingView: View {
                 }
                 Spacer()
                 
-                // 텍스트 작성
+                // 제목 작성
+                TextField("제목 입력해주세요.", text: $title)
+                    .padding()
+                    .background(Color(uiColor: .secondarySystemBackground))
+                
+                // 내용 작성
                 ZStack {
                     if self.content.isEmpty {
                         TextEditor(text: $placeholder)
@@ -45,7 +52,12 @@ struct WritingView: View {
                         .font(.body)
                         .opacity(self.content.isEmpty ? 0.25 : 1)
                         .padding()
-                }
+                    Spacer()
+                }.padding()
+//                    .onAppear(perform: {
+//                        self.title = item.title
+//                        self.content = item.content
+//                    })
                 
             }
         }

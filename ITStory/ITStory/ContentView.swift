@@ -47,7 +47,7 @@ struct ContentView: View {
                             
                         }.padding(3)
                     }
-                }
+                }.listStyle(InsetListStyle())
                 .navigationTitle("IT Story")
                 .onAppear {
                     blog.fetch()

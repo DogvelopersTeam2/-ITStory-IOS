@@ -41,6 +41,12 @@ struct BlogPostView: View { // 글 누르면 보여주는 뷰
                             .padding(.bottom, 25)
                             .frame(maxWidth: .infinity)
                             .fixedSize(horizontal: false, vertical: true)
+                        
+                        HStack {
+                            Text(blogPost.createTime)
+                                .foregroundColor(.gray)
+                            Spacer()
+                        }
                     }
                     .padding(.horizontal, 20)
                     
@@ -55,6 +61,6 @@ struct BlogPostView: View { // 글 누르면 보여주는 뷰
 
 struct BlogPostView_Previews: PreviewProvider {
     static var previews: some View {
-        BlogPostView(blogPost: BlogPost(postId: 0, postTitle: "test", postContent: "tt"))
+        BlogPostView(blogPost: BlogPost(postId: 0, postTitle: "test", postContent: "tt", createTime: "dd"))
     }
 }

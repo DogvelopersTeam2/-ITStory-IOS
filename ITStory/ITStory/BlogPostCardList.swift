@@ -39,6 +39,16 @@ struct BlogPostCardList: View { // 글 목록 보여주는 뷰
                         .foregroundColor(.secondary)
                     Spacer()
                 }
+                HStack {
+                    Text(blogPost.createTime)
+                        .multilineTextAlignment(.leading)
+                        .fixedSize(horizontal: false, vertical: true)
+                        .lineLimit(3)
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
+                    Spacer()
+                }
+                
             }
         }
         .frame(maxWidth: UIScreen.main.bounds.width - 60, alignment: .leading)
@@ -48,6 +58,6 @@ struct BlogPostCardList: View { // 글 목록 보여주는 뷰
 
 struct BlogPostCardList_Previews: PreviewProvider {
     static var previews: some View {
-        BlogPostCardList(blogPost: BlogPost(postId: 0, postTitle: "testtt", postContent: "ttt"))
+        BlogPostCardList(blogPost: BlogPost(postId: 0, postTitle: "testtt", postContent: "ttt", createTime: "da"))
     }
 }
