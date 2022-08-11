@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F78D2F7528A573FB0055D5D1 /* UpdateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78D2F7428A573FB0055D5D1 /* UpdateView.swift */; };
 		F791CE5528A2234C0012900D /* RestAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F791CE5428A2234C0012900D /* RestAPI.swift */; };
 		F7B2070F289EAE950005AA5E /* BlogPosts.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B2070E289EAE950005AA5E /* BlogPosts.swift */; };
 		F7BA4691289FE9EB00666979 /* BlogPostCardMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BA4690289FE9EB00666979 /* BlogPostCardMain.swift */; };
@@ -25,6 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F78D2F7328A5609A0055D5D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		F78D2F7428A573FB0055D5D1 /* UpdateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateView.swift; sourceTree = "<group>"; };
 		F791CE5428A2234C0012900D /* RestAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestAPI.swift; sourceTree = "<group>"; };
 		F7B2070E289EAE950005AA5E /* BlogPosts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogPosts.swift; sourceTree = "<group>"; };
 		F7BA4690289FE9EB00666979 /* BlogPostCardMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogPostCardMain.swift; sourceTree = "<group>"; };
@@ -87,6 +90,7 @@
 		F7E45959289C325300862D29 /* ITStory */ = {
 			isa = PBXGroup;
 			children = (
+				F78D2F7328A5609A0055D5D1 /* Info.plist */,
 				F7B2070D289EA8AB0005AA5E /* test */,
 				F7E4595A289C325300862D29 /* ITStoryApp.swift */,
 				F7E4595C289C325300862D29 /* ContentView.swift */,
@@ -96,6 +100,7 @@
 				F7BA4694289FF47C00666979 /* BlogPostView.swift */,
 				F7BA4698289FF9CE00666979 /* BlogPostCardList.swift */,
 				F791CE5428A2234C0012900D /* RestAPI.swift */,
+				F78D2F7428A573FB0055D5D1 /* UpdateView.swift */,
 			);
 			path = ITStory;
 			sourceTree = "<group>";
@@ -183,6 +188,7 @@
 				F7E45969289C34B200862D29 /* MyTabView.swift in Sources */,
 				F7BA4695289FF47C00666979 /* BlogPostView.swift in Sources */,
 				F7BA4691289FE9EB00666979 /* BlogPostCardMain.swift in Sources */,
+				F78D2F7528A573FB0055D5D1 /* UpdateView.swift in Sources */,
 				F7E4595B289C325300862D29 /* ITStoryApp.swift in Sources */,
 				F7BA4693289FEE5C00666979 /* HexColorExtension.swift in Sources */,
 				F7E4596F289C376900862D29 /* HomeView.swift in Sources */,
@@ -322,6 +328,7 @@
 				DEVELOPMENT_TEAM = T9JBD726X3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ITStory/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -351,6 +358,7 @@
 				DEVELOPMENT_TEAM = T9JBD726X3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ITStory/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
