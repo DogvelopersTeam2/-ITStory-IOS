@@ -9,17 +9,10 @@ import SwiftUI
 
 struct BlogPostCardList: View { // 글 목록 보여주는 뷰
     var blogPost: BlogPost
+//    var blogPost: PostModel
     
     var body: some View {
         VStack(alignment: .leading) {
-//            Image(blogPost.image)
-//                .resizable()
-//                .aspectRatio(contentMode: .fill)
-//                .frame(maxWidth: .infinity)
-//                .frame(height: 180)
-//                .frame(maxWidth: UIScreen.main.bounds.width-60)
-//                .clipped()
-//                .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
             VStack(spacing: 6) {
                 HStack {
                     Text(blogPost.postTitle)
@@ -47,8 +40,9 @@ struct BlogPostCardList: View { // 글 목록 보여주는 뷰
                         .font(.subheadline)
                         .foregroundColor(.secondary)
                     Spacer()
+                    Text(String(blogPost.commentCount))
+                        .foregroundColor(.purple)
                 }
-                
             }
         }
         .frame(maxWidth: UIScreen.main.bounds.width - 60, alignment: .leading)
@@ -58,6 +52,6 @@ struct BlogPostCardList: View { // 글 목록 보여주는 뷰
 
 struct BlogPostCardList_Previews: PreviewProvider {
     static var previews: some View {
-        BlogPostCardList(blogPost: BlogPost(postId: 0, postTitle: "testtt", postContent: "ttt", createTime: "da"))
+        BlogPostCardList(blogPost: BlogPost(postId: 0, postTitle: "testtt", postContent: "ttt", commentCount: 0, createTime: "da"))
     }
 }

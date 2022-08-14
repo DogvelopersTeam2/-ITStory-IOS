@@ -13,6 +13,7 @@ struct ITStoryApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                //.environmentObject(RestApI())
         }
     }
 }

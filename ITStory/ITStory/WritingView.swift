@@ -20,30 +20,6 @@ struct WritingView: View {
     var body: some View {
         NavigationView {
             VStack{
-                HStack {
-                    
-                    // 버튼으로 바꾸기
-//                    NavigationLink(destination: ContentView(), tag: 2, selection: self.$tag) {}
-//                    Button(action: {
-//                        self.tag = 2
-//                    }) {
-//                    Text("취소")
-//                        .foregroundColor(Color.black)
-//                        .padding()
-//                    }
-                    
-//                    Button(action: {
-//                        isPresented.toggle()
-//                    }) {
-//                        Text("취소")
-//                            .foregroundColor(Color.black)
-//                            .padding()
-//                    }
-//
-//                    // 버튼으로 바꾸고 이걸 누르면 서버 요청하고 디비에 저장
-//                    Text("등록")
-//                        .padding()
-                }
                 Spacer()
                 
                 // 제목 작성
@@ -71,11 +47,6 @@ struct WritingView: View {
                         let message = Text("fill title and post")
                         return Alert(title: title, message: message)
                     })
-                //                    .onAppear(perform: {
-                //                        self.title = item.title
-                //                        self.content = item.content
-                //                    })
-                
             }
             .navigationBarTitle("글 작성", displayMode: .inline)
             .navigationBarItems(leading: leading, trailing: trailing)

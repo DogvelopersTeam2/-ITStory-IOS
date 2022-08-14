@@ -9,19 +9,13 @@ import SwiftUI
 
 struct BlogPostView: View { // 글 누르면 보여주는 뷰
     var blogPost: BlogPost
+//    var comment: CommentModel
+//    var blogPost: PostModel
     
     var body: some View {
         ZStack {
             ScrollView {
                 VStack {
-//                    Image(blogPost.image)
-//                        .renderingMode(.original)
-//                        .resizable()
-//                        .aspectRatio(contentMode: .fill)
-//                        .frame(height: 310)
-//                        .frame(maxWidth: UIScreen.main.bounds.width)
-//                        .clipped()
-                    
                     VStack {
                         HStack {
                             Text(blogPost.postTitle)
@@ -46,6 +40,8 @@ struct BlogPostView: View { // 글 누르면 보여주는 뷰
                             Text(blogPost.createTime)
                                 .foregroundColor(.gray)
                             Spacer()
+                            Text(String(blogPost.commentCount))
+                                .foregroundColor(.purple)
                         }
                     }
                     .padding(.horizontal, 20)
@@ -61,6 +57,6 @@ struct BlogPostView: View { // 글 누르면 보여주는 뷰
 
 struct BlogPostView_Previews: PreviewProvider {
     static var previews: some View {
-        BlogPostView(blogPost: BlogPost(postId: 0, postTitle: "test", postContent: "tt", createTime: "dd"))
+        BlogPostView(blogPost: BlogPost(postId: 0, postTitle: "test", postContent: "tt", commentCount: 0, createTime: "dd"))
     }
 }

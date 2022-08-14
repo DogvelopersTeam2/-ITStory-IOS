@@ -17,20 +17,6 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             VStack {
-                HStack {
-                    //                        Image("Image")
-                    //                            .resizable()
-                    //                            .frame(width: 40, height: 40)
-                    //                            .padding()
-//                    NavigationLink(destination: WritingView(), tag: 1, selection: self.$tag) {}
-//                    Button(action: {
-//                        self.tag = 1
-//                    }) {
-//                        Image(systemName: "highlighter")
-//                            .foregroundColor(.purple)
-//                            .padding()
-//                    }
-                }
                 List {
                     ForEach(blog.posts, id: \.self) { post in
                         VStack {
@@ -47,7 +33,7 @@ struct ContentView: View {
 //                            })
                             
                         }.padding(3)
-                    }
+                    }.onDelete(perform: deletePost)
                 }.listStyle(InsetListStyle())
                 .navigationTitle("IT Story")
                 .navigationBarItems(trailing: writeButton)
@@ -62,6 +48,17 @@ struct ContentView: View {
         .navigationBarHidden(true)
         .navigationBarBackButtonHidden(true)
     }
+    
+    // 글 삭제 
+    private func deletePost(indexSet: IndexSet) {
+        let postId = indexSet.map { blog.posts[$0].postId }
+        DispatchQueue.main.async {
+            let parameters: [String: Any] = ["postId": postId[0]]
+            self.blog.delete(parameters: parameters)
+            self.blog.fetch()
+        }
+    }
+    
     
     var writeButton: some View {
         Button(action: {
