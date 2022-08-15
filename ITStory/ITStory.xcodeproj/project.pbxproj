@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		F78D2F7528A573FB0055D5D1 /* UpdateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78D2F7428A573FB0055D5D1 /* UpdateView.swift */; };
 		F791CE5528A2234C0012900D /* RestAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F791CE5428A2234C0012900D /* RestAPI.swift */; };
+		F7AFDD5328AA6AD000EB7EC3 /* CommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7AFDD5228AA6AD000EB7EC3 /* CommentView.swift */; };
+		F7AFDD5528AAB21B00EB7EC3 /* CommentList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7AFDD5428AAB21B00EB7EC3 /* CommentList.swift */; };
 		F7B2070F289EAE950005AA5E /* BlogPosts.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B2070E289EAE950005AA5E /* BlogPosts.swift */; };
 		F7BA4691289FE9EB00666979 /* BlogPostCardMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BA4690289FE9EB00666979 /* BlogPostCardMain.swift */; };
 		F7BA4693289FEE5C00666979 /* HexColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BA4692289FEE5C00666979 /* HexColorExtension.swift */; };
@@ -29,6 +31,8 @@
 		F78D2F7328A5609A0055D5D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		F78D2F7428A573FB0055D5D1 /* UpdateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateView.swift; sourceTree = "<group>"; };
 		F791CE5428A2234C0012900D /* RestAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestAPI.swift; sourceTree = "<group>"; };
+		F7AFDD5228AA6AD000EB7EC3 /* CommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentView.swift; sourceTree = "<group>"; };
+		F7AFDD5428AAB21B00EB7EC3 /* CommentList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentList.swift; sourceTree = "<group>"; };
 		F7B2070E289EAE950005AA5E /* BlogPosts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogPosts.swift; sourceTree = "<group>"; };
 		F7BA4690289FE9EB00666979 /* BlogPostCardMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogPostCardMain.swift; sourceTree = "<group>"; };
 		F7BA4692289FEE5C00666979 /* HexColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexColorExtension.swift; sourceTree = "<group>"; };
@@ -96,10 +100,12 @@
 				F7E4595C289C325300862D29 /* ContentView.swift */,
 				F7E4596A289C354600862D29 /* WritingView.swift */,
 				F78D2F7428A573FB0055D5D1 /* UpdateView.swift */,
+				F7AFDD5228AA6AD000EB7EC3 /* CommentView.swift */,
 				F7E4595E289C325700862D29 /* Assets.xcassets */,
 				F7E45960289C325700862D29 /* Preview Content */,
 				F7BA4694289FF47C00666979 /* BlogPostView.swift */,
 				F7BA4698289FF9CE00666979 /* BlogPostCardList.swift */,
+				F7AFDD5428AAB21B00EB7EC3 /* CommentList.swift */,
 				F791CE5428A2234C0012900D /* RestAPI.swift */,
 			);
 			path = ITStory;
@@ -186,7 +192,9 @@
 				F7E4595D289C325300862D29 /* ContentView.swift in Sources */,
 				F7BA4699289FF9CE00666979 /* BlogPostCardList.swift in Sources */,
 				F7E45969289C34B200862D29 /* MyTabView.swift in Sources */,
+				F7AFDD5328AA6AD000EB7EC3 /* CommentView.swift in Sources */,
 				F7BA4695289FF47C00666979 /* BlogPostView.swift in Sources */,
+				F7AFDD5528AAB21B00EB7EC3 /* CommentList.swift in Sources */,
 				F7BA4691289FE9EB00666979 /* BlogPostCardMain.swift in Sources */,
 				F78D2F7528A573FB0055D5D1 /* UpdateView.swift in Sources */,
 				F7E4595B289C325300862D29 /* ITStoryApp.swift in Sources */,

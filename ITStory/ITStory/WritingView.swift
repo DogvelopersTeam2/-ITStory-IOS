@@ -10,27 +10,27 @@ import SwiftUI
 struct WritingView: View {
     @StateObject var blog = RestApI()
     @Binding var isPresented: Bool
-    //@State var tag:Int? = nil
     @Binding var postCategory: String
     @Binding var postTitle: String
     @Binding var postContent: String 
     @State var placeholder: String = "개발 내용을 작성해주세요."
     @State var isAlert = false
-    //let item: PostModel
     
     var body: some View {
         NavigationView {
             VStack{
                 Spacer()
                 // 카테고리 작성
-                TextField("카테고리 입력해주세요.", text: $postCategory)
+                TextField("카테고리", text: $postCategory)
+                    .textInputAutocapitalization(.characters) // 자동으로 대문자 입력 
                     .padding()
-                    .background(Color(uiColor: .secondarySystemBackground))
+                Divider()
                 
                 // 제목 작성
-                TextField("제목 입력해주세요.", text: $postTitle)
+                TextField("제목", text: $postTitle)
+                    .lineLimit(3)
                     .padding()
-                    .background(Color(uiColor: .secondarySystemBackground))
+                Divider()
                 
                 // 내용 작성
                 ZStack {
@@ -48,8 +48,8 @@ struct WritingView: View {
                     Spacer()
                 }.padding()
                     .alert(isPresented: $isAlert, content : {
-                        let title = Text("no data")
-                        let message = Text("fill title and post")
+                        let title = Text("제목과 내용을 입력해주세요.")
+                        let message = Text("간단해도 좋아요.")
                         return Alert(title: title, message: message)
                     })
             }
@@ -60,6 +60,7 @@ struct WritingView: View {
         .navigationBarBackButtonHidden(true)
     }
     
+    // 취소 버튼
     var leading: some View {
         Button(action: {
             isPresented.toggle()
@@ -68,12 +69,13 @@ struct WritingView: View {
         }
     }
     
+    // 등록 버튼 
     var trailing: some View {
         Button(action: {
             if postCategory != "" && postTitle != "" && postContent != "" {
                 let parameters: [String: Any] = ["postCategory": postCategory, "postTitle": postTitle, "postContent": postContent]
-                blog.creat(parameters: parameters)
-                blog.fetch()
+                blog.create(parameters: parameters) // 데이터 보내는 api
+                blog.fetch() // 데이터 받는 api
                 
                 isPresented.toggle()
             } else {

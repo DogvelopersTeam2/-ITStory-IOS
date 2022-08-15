@@ -1,27 +1,30 @@
 //
-//  BlogPostCardList.swift
+//  CommentList.swift
 //  ITStory
 //
-//  Created by Jinhee on 2022/08/07.
+//  Created by Jinhee on 2022/08/16.
 //
 
 import SwiftUI
 
-struct BlogPostCardList: View { // 글 목록 보여주는 뷰
-    var blogPost: BlogPost
-//    var blogPost: PostModel
-    
+struct CommentList: View {
+    var comment: CommentModel
+   
     var body: some View {
         VStack(alignment: .leading) {
             VStack(spacing: 6) {
                 HStack {
-                    Text("[" + blogPost.postCategory + "]")
-                        .font(.subheadline)
+                    Image(systemName: "person")
                         .foregroundColor(.purple)
+                    Text(comment.commentWriter)
+                        .multilineTextAlignment(.leading)
+                        .fixedSize(horizontal: false, vertical: true)
+                        .lineLimit(3)
+                        .font(.subheadline)
                     Spacer()
                 }
                 HStack {
-                    Text(blogPost.postTitle)
+                    Text(comment.commentContent)
                         .multilineTextAlignment(.leading)
                         .fixedSize(horizontal: false, vertical: true)
                         .lineLimit(3)
@@ -30,25 +33,13 @@ struct BlogPostCardList: View { // 글 목록 보여주는 뷰
                     Spacer()
                 }
                 HStack {
-                    Text(blogPost.postContent)
+                    Text(comment.createDateTime)
                         .multilineTextAlignment(.leading)
                         .fixedSize(horizontal: false, vertical: true)
                         .lineLimit(3)
                         .font(.subheadline)
                         .foregroundColor(.secondary)
                     Spacer()
-                }
-                HStack {
-                    Text(blogPost.createTime)
-                        .multilineTextAlignment(.leading)
-                        .fixedSize(horizontal: false, vertical: true)
-                        .lineLimit(3)
-                        .font(.subheadline)
-                        .foregroundColor(.secondary)
-                    Spacer()
-                    Text(String("댓글: \(blogPost.commentCount)"))
-                        .foregroundColor(.purple)
-                        .font(.subheadline)
                 }
             }
         }
@@ -57,8 +48,8 @@ struct BlogPostCardList: View { // 글 목록 보여주는 뷰
     }
 }
 
-struct BlogPostCardList_Previews: PreviewProvider {
+struct test_Previews: PreviewProvider {
     static var previews: some View {
-        BlogPostCardList(blogPost: BlogPost(postId: 0,postCategory: "IOS", postTitle: "testtt", postContent: "ttt", commentCount: 0, createTime: "da"))
+        CommentList(comment: CommentModel(commentId: 0, commentWriter: "jh", commentContent: "good", createDateTime: "3", commentCount: 4, createTime: "5", postContent: "6", postId: 7, postTitle: "8", postCategory: "IOS"))
     }
 }
