@@ -11,6 +11,7 @@ struct ContentView: View {
     //@State var tag:Int? = nil
     @StateObject var blog = RestApI()
     @State var isPresentedNewPost = false
+    @State var postCategory: String = ""
     @State var postTitle: String = ""
     @State var postContent: String = ""
     
@@ -31,7 +32,7 @@ struct ContentView: View {
 //                                    Text(post.postContent)
 //                                }
 //                            })
-                            
+
                         }.padding(3)
                     }.onDelete(perform: deletePost)
                 }.listStyle(InsetListStyle())
@@ -42,7 +43,7 @@ struct ContentView: View {
                 }
             }
             .sheet(isPresented: $isPresentedNewPost, content: {
-                WritingView(isPresented: $isPresentedNewPost, postTitle: $postTitle, postContent: $postContent)
+                WritingView(isPresented: $isPresentedNewPost, postCategory: $postCategory, postTitle: $postTitle, postContent: $postContent)
             })
         }
         .navigationBarHidden(true)
@@ -50,16 +51,16 @@ struct ContentView: View {
     }
     
     // 글 삭제 
-    private func deletePost(indexSet: IndexSet) {
-        let postId = indexSet.map { blog.posts[$0].postId }
+    private func deletePost(at offsets: IndexSet) {
+        let postId = offsets.map { blog.posts[$0].postId }
         DispatchQueue.main.async {
-            let parameters: [String: Any] = ["postId": postId[0]]
+            let parameters: [String: Int] = ["postId": postId[0]]
             self.blog.delete(parameters: parameters)
             self.blog.fetch()
         }
     }
     
-    
+    // 글 쓰기 버튼
     var writeButton: some View {
         Button(action: {
             isPresentedNewPost.toggle()
@@ -69,8 +70,6 @@ struct ContentView: View {
                 .padding()
         }
     }
-    
-    
 }
 
 

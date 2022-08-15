@@ -17,6 +17,7 @@ struct BlogPostView: View { // 글 누르면 보여주는 뷰
             ScrollView {
                 VStack {
                     VStack {
+                        //Text(blogPost.postCategory)
                         HStack {
                             Text(blogPost.postTitle)
                                 .font(.title3)

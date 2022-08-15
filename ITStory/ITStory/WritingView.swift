@@ -11,6 +11,7 @@ struct WritingView: View {
     @StateObject var blog = RestApI()
     @Binding var isPresented: Bool
     //@State var tag:Int? = nil
+    @Binding var postCategory: String
     @Binding var postTitle: String
     @Binding var postContent: String 
     @State var placeholder: String = "개발 내용을 작성해주세요."
@@ -21,6 +22,10 @@ struct WritingView: View {
         NavigationView {
             VStack{
                 Spacer()
+                // 카테고리 작성
+                TextField("카테고리 입력해주세요.", text: $postCategory)
+                    .padding()
+                    .background(Color(uiColor: .secondarySystemBackground))
                 
                 // 제목 작성
                 TextField("제목 입력해주세요.", text: $postTitle)
@@ -65,8 +70,8 @@ struct WritingView: View {
     
     var trailing: some View {
         Button(action: {
-            if postTitle != "" && postContent != "" {
-                let parameters: [String: Any] = ["postTitle": postTitle, "postContent": postContent]
+            if postCategory != "" && postTitle != "" && postContent != "" {
+                let parameters: [String: Any] = ["postCategory": postCategory, "postTitle": postTitle, "postContent": postContent]
                 blog.creat(parameters: parameters)
                 blog.fetch()
                 

@@ -8,23 +8,8 @@
 import Foundation
 
 struct BlogPost: Hashable, Codable { // 데이터 받기
-    
-//    init(postId: Int = 0, postTitle: String = "", postContent: String = "", commentCount: Int = 0, createTime: String = "") {
-//        self.postId = postId
-//        self.postTitle = postTitle
-//        self.postContent = postContent
-//        self.commentCount = commentCount
-//        self.createTime = createTime
-//    }
-//
-//        var postId: Int
-//        var postTitle: String
-//        var postContent: String
-//        var commentCount: Int
-//        var createTime: String
-    
-    
     let postId: Int
+    //let postCategory: String
     let postTitle: String
     let postContent: String
     let commentCount: Int
@@ -33,6 +18,7 @@ struct BlogPost: Hashable, Codable { // 데이터 받기
 
 struct PostModel: Decodable { // 데이터 보내기
     let postId: Int
+    let postCategory: String
     let postTitle: String
     let postContent: String
     let commentCount: Int
@@ -40,18 +26,17 @@ struct PostModel: Decodable { // 데이터 보내기
 }
 
 
-struct CommentModel : Hashable, Codable {
-    let commentId: String
-    let commentWriter: String
-    let commentContent: String
-    let createDateTime: String
-}
+//struct CommentModel : Hashable, Codable {
+//    let commentId: String
+//    let commentWriter: String
+//    let commentContent: String
+//    let createDateTime: String
+//}
 
 
 class RestApI: ObservableObject{
     @Published var posts: [BlogPost] = []
-    @Published var comments: [CommentModel] = []
-    var postId = BlogPost.self
+//    @Published var comments: [CommentModel] = []
     
     //MARK: - 데이터 받기
     func fetch() {
@@ -113,6 +98,7 @@ class RestApI: ObservableObject{
     
     //MARK: - 데이터 수정
     func update(parameters: [String: Any]) {
+        let postId = parameters["postId"]!
         
         guard let url = URL(string:
             "http://15.164.225.190/post/\(postId)") else {
@@ -147,14 +133,15 @@ class RestApI: ObservableObject{
     }
     
     //MARK: - 데이터 삭제
-    func delete(parameters: [String: Any]) {
+    func delete(parameters: [String: Int]) {
+        let postId = parameters["postId"]!
         
         guard let url = URL(string:
             "http://15.164.225.190/post/\(postId)") else {
             print("error")
             return
         }
-
+    
         let data = try! JSONSerialization.data(withJSONObject: parameters)
 
         var request = URLRequest(url: url)
@@ -183,28 +170,28 @@ class RestApI: ObservableObject{
     
     
     //MARK: - 댓글
-    func commentfetch() {
-        guard let url = URL(string:
-            "http://15.164.225.190/post/54/comment") else {
-            return
-        }
-        
-        let task = URLSession.shared.dataTask(with: url) { [weak self] data, _, error in
-            guard let data = data, error == nil else {
-                return
-            }
-            
-            do {
-                let comments = try JSONDecoder().decode([CommentModel].self, from: data)
-                DispatchQueue.main.async {
-                    self?.comments = comments
-                }
-            }
-            catch {
-                print(error)
-            }
-        }
-        task.resume()
-    }
+//    func commentfetch() {
+//        guard let url = URL(string:
+//            "http://15.164.225.190/post/54/comment") else {
+//            return
+//        }
+//
+//        let task = URLSession.shared.dataTask(with: url) { [weak self] data, _, error in
+//            guard let data = data, error == nil else {
+//                return
+//            }
+//
+//            do {
+//                let comments = try JSONDecoder().decode([CommentModel].self, from: data)
+//                DispatchQueue.main.async {
+//                    self?.comments = comments
+//                }
+//            }
+//            catch {
+//                print(error)
+//            }
+//        }
+//        task.resume()
+//    }
     
 }

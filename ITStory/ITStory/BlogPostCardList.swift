@@ -14,6 +14,7 @@ struct BlogPostCardList: View { // 글 목록 보여주는 뷰
     var body: some View {
         VStack(alignment: .leading) {
             VStack(spacing: 6) {
+                //Text(blogPost.postCategory)
                 HStack {
                     Text(blogPost.postTitle)
                         .multilineTextAlignment(.leading)
