@@ -23,18 +23,21 @@ struct ContentView: View {
 //                            NavigationLink(destination: BlogPostView(blogPost: post)) {
 //                                BlogPostCardList(blogPost: post)
 //                            }
+                            
+                            // item: updateview에 있는 item
+                            // post: posts에 있는 각각의 제목, 내용 등을 의미
                             NavigationLink(destination: UpdateView(item: post)) {
                                 BlogPostCardList(blogPost: post)
                             }
                         }.padding(3)
-                    }.onDelete(perform: deletePost)
+                    }.onDelete(perform: deletePost) // 삭제 
                 }.listStyle(InsetListStyle())
                 .navigationTitle("IT Story")
                 .navigationBarItems(trailing: writeButton)
                 .onAppear {
-                    blog.fetch()
+                    blog.fetch() // 전체 글 조회
                 }
-            }
+            } // 글 작성하는 뷰 sheet로 보여줌
             .sheet(isPresented: $isPresentedNewPost, content: {
                 WritingView(isPresented: $isPresentedNewPost, postCategory: $postCategory, postTitle: $postTitle, postContent: $postContent)
             })

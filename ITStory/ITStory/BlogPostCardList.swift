@@ -9,7 +9,6 @@ import SwiftUI
 
 struct BlogPostCardList: View { // 글 목록 보여주는 뷰
     var blogPost: BlogPost
-//    var blogPost: PostModel
     
     var body: some View {
         VStack(alignment: .leading) {

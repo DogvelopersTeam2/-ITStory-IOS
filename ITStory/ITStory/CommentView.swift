@@ -13,29 +13,34 @@ struct CommentView: View {
     @Binding var commentContent: String
     @Binding var commentWriter: String
     @Binding var postId: Int
+    @Binding var commentId: Int
     @State var isAlert = false
-   // @State var item: BlogPost
     
     var body: some View {
         NavigationView {
             ZStack {
                 VStack {
-                    List {
-                        Text("댓글")
+                    List { // 댓글 보여주기
                         ForEach(blog.comments, id: \.self) { comment in
                             VStack {
-                                    CommentList(comment: comment)
+                                CommentList(commentModel: comment)
                             }.padding(3)
-                        }//.onDelete(perform: deletePost)
+                        }.onDelete(perform: deleteComment)
                     }
+                    .onAppear(perform: {
+                        let parameter: [String: Any] = ["postId": postId]
+                        blog.commentfetch(parameters: parameter)
+                       // self.commentId = commentId
+                        self.commentContent = commentContent
+                        self.commentWriter = commentWriter
+                    })
                     
-                    TextField("댓글 내용", text: $commentContent)
-                        .padding()
-                    Divider()
                     TextField("작성자", text: $commentWriter)
                         .padding()
                     Divider()
-                    //Spacer()
+                        TextField("댓글 내용", text: $commentContent)
+                        .padding()
+                    Divider()
                 }
             }
             .alert(isPresented: $isAlert, content : {
@@ -62,16 +67,29 @@ struct CommentView: View {
         Button(action: {
             if commentContent != "" && commentWriter != ""{
                 let parameters: [String: Any] = ["postId": postId, "commentContent": commentContent, "commentWriter": commentWriter]
-                print(parameters)
                 blog.commentcreate(parameters: parameters)
-                blog.fetch()
-                
+                blog.commentfetch(parameters: parameters)
                 isPresented.toggle()
+                
+                // api로 보냈으니까 썼던 거 지우기
+                commentWriter = ""
+                commentContent = ""
             } else {
                 isAlert.toggle()
             }
         }) {
             Text("등록")
+        }
+    }
+    
+    // 댓글 삭제
+    private func deleteComment(at offsets: IndexSet) {
+        //let postId = offsets.map { blog.posts[$0].postId }
+        let commentId = offsets.map { blog.comments[$0].commentId }
+        DispatchQueue.main.async {
+            let parameters: [String: Int] = ["postId": postId, "commentId": commentId[0]]
+            self.blog.commentdelete(parameters: parameters)
+            self.blog.commentfetch(parameters: parameters)
         }
     }
 }

@@ -71,13 +71,17 @@ struct WritingView: View {
     
     // 등록 버튼 
     var trailing: some View {
-        Button(action: {
+        Button(action: { // 글 작성해서 api로 보냄 
             if postCategory != "" && postTitle != "" && postContent != "" {
                 let parameters: [String: Any] = ["postCategory": postCategory, "postTitle": postTitle, "postContent": postContent]
-                blog.create(parameters: parameters) // 데이터 보내는 api
-                blog.fetch() // 데이터 받는 api
-                
+                blog.create(parameters: parameters) // 글 작성 api
+                blog.fetch() // 전체 글 조회 api
                 isPresented.toggle()
+                
+                // api로 보냈으니까 text 비워주기
+                postCategory = ""
+                postTitle = ""
+                postContent = ""
             } else {
                 isAlert.toggle()
             }

@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct CommentList: View {
-    var comment: CommentModel
+struct CommentList: View { // 댓글 목록 
+    var commentModel: CommentModel.comments
    
     var body: some View {
         VStack(alignment: .leading) {
@@ -16,7 +16,7 @@ struct CommentList: View {
                 HStack {
                     Image(systemName: "person")
                         .foregroundColor(.purple)
-                    Text(comment.commentWriter)
+                    Text(commentModel.commentWriter)
                         .multilineTextAlignment(.leading)
                         .fixedSize(horizontal: false, vertical: true)
                         .lineLimit(3)
@@ -24,16 +24,16 @@ struct CommentList: View {
                     Spacer()
                 }
                 HStack {
-                    Text(comment.commentContent)
+                    Text(commentModel.commentContent)
                         .multilineTextAlignment(.leading)
                         .fixedSize(horizontal: false, vertical: true)
                         .lineLimit(3)
-                        .font(Font.title2.bold())
+                        .font(Font.title3.bold())
                         .foregroundColor(.primary)
                     Spacer()
                 }
                 HStack {
-                    Text(comment.createDateTime)
+                    Text(commentModel.createDateTime)
                         .multilineTextAlignment(.leading)
                         .fixedSize(horizontal: false, vertical: true)
                         .lineLimit(3)
@@ -47,9 +47,9 @@ struct CommentList: View {
         .padding()
     }
 }
-
-struct test_Previews: PreviewProvider {
-    static var previews: some View {
-        CommentList(comment: CommentModel(commentId: 0, commentWriter: "jh", commentContent: "good", createDateTime: "3", commentCount: 4, createTime: "5", postContent: "6", postId: 7, postTitle: "8", postCategory: "IOS"))
-    }
-}
+//
+//struct test_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CommentList(commentModel: CommentModel.comments(commentId: 0, commentWriter: "jh", commentContent: "good", createDateTime: "3"))
+//    }
+//}

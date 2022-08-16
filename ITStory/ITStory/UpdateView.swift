@@ -9,7 +9,7 @@ import SwiftUI
 
 struct UpdateView: View {
     @StateObject var blog = RestApI()
-    @Environment(\.presentationMode) var presentationMode
+    @Environment(\.presentationMode) var presentationMode // sheet 닫히게 하는 방법
     @State var isPresentedNewPost = false
     @State var postCategory: String = ""
     @State var postTitle: String = ""
@@ -17,6 +17,7 @@ struct UpdateView: View {
     @State var postContent: String = ""
     
     @State var postId: Int = 0
+    @State var commentId: Int = 0
     @State var commentContent: String = ""
     @State var commentWriter: String = ""
     let item: BlogPost
@@ -46,45 +47,22 @@ struct UpdateView: View {
                     .padding()
                 Spacer()
             }.padding()
-                .onAppear(perform: {
+                .onAppear(perform: { // 해당 post의 제목, 글, id를 알 수 있음
                     self.postTitle = item.postTitle
                     self.postContent = item.postContent
                     self.postId = item.postId
+                    
                 })
 
             HStack {
                 Spacer()
                 Text(item.createTime)
                     .foregroundColor(.gray)
-                //Spacer()
+                
                 commentButton // 댓글 쓰는 뷰로 넘어감 
             }
-            
-            List {
-                ForEach(blog.comments, id: \.self) { comment in
-                    VStack {
-                        NavigationLink(destination: UpdateView(item: item)) {
-                            CommentList(comment: comment)
-                        }
-                        
-                    }.padding(3)
-                }
-                //.onDelete(perform: deletePost)
-            }.listStyle(InsetListStyle())
-            //.navigationTitle("IT Story")
-           // .navigationBarItems(trailing: writeButton)
-            .onAppear {
-                //blog.commentfetch(parameters: item.postId)
-                self.postId = item.postId
-                
-            }
-            
-//            Text(citem.commentContent)
-//            Text(citem.commentWriter)
-//            Text(citem.createDateTime)
-            
         }.sheet(isPresented: $isPresentedNewPost, content: {
-            CommentView(isPresented: $isPresentedNewPost, commentContent: $commentContent, commentWriter: $commentWriter, postId: $postId)
+            CommentView(isPresented: $isPresentedNewPost, commentContent: $commentContent, commentWriter: $commentWriter, postId: $postId, commentId: $commentId)
         })
         .navigationBarTitle("글 수정", displayMode: .inline)
         .navigationBarItems(trailing: trailing)
@@ -93,15 +71,12 @@ struct UpdateView: View {
     // 저장 버튼 
     var trailing: some View {
         Button(action: {
-            // update post
+            // 글 수정하기
             if postTitle != "" && postContent != "" {
                 let parameters: [String: Any] = ["postId": item.postId, "postTitle": postTitle, "postContent": postContent]
                 blog.update(parameters: parameters)
                 blog.fetch()
-                presentationMode.wrappedValue.dismiss()
-                
-                //print(item)
-                //print(citem)
+                presentationMode.wrappedValue.dismiss() // sheet에 텍스트를 눌러 닫히게 함
             }
         }, label: {
             Text("저장")
@@ -112,8 +87,12 @@ struct UpdateView: View {
     var commentButton: some View {
         Button(action: {
             isPresentedNewPost.toggle()
-            let parameters: [String: Any] = ["postId": item.postId, "postTitle": postTitle, "postContent": postContent]
-            blog.commentfetch(parameters: parameters)
+            // 해당 글의 postid를 넘겨줌
+            if postTitle != "" && postContent != "" {
+                let parameters: [String: Any] = ["postId": item.postId, "postTitle": postTitle, "postContent": postContent]
+                blog.commentfetch(parameters: parameters)
+                
+            }
         }) {
             Image(systemName: "paperplane.fill")
                 .foregroundColor(.purple)
