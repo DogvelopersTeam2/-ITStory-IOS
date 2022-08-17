@@ -36,9 +36,11 @@ struct CommentView: View {
                     })
                     
                     TextField("작성자", text: $commentWriter)
+                        .disableAutocorrection(true) // 자동완성 끄기
                         .padding()
                     Divider()
                         TextField("댓글 내용", text: $commentContent)
+                        .disableAutocorrection(true) // 자동완성 끄기
                         .padding()
                     Divider()
                 }

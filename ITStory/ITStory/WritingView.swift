@@ -22,13 +22,15 @@ struct WritingView: View {
                 Spacer()
                 // 카테고리 작성
                 TextField("카테고리", text: $postCategory)
-                    .textInputAutocapitalization(.characters) // 자동으로 대문자 입력 
+                    .textInputAutocapitalization(.characters) // 자동으로 대문자 입력
+                    .disableAutocorrection(true) // 자동완성 끄기
                     .padding()
                 Divider()
                 
                 // 제목 작성
                 TextField("제목", text: $postTitle)
                     .lineLimit(3)
+                    .disableAutocorrection(true) // 자동완성 끄기
                     .padding()
                 Divider()
                 
